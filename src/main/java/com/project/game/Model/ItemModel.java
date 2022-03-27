@@ -70,4 +70,9 @@ public class ItemModel {
     public void setAdditionalAgtPoints(int additionalAgtPoints) {
         this.additionalAgtPoints = additionalAgtPoints;
     }
+
+    public ItemModel(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 }

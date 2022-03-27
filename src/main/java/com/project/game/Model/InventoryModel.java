@@ -19,4 +19,7 @@ public class InventoryModel {
     public void setItemModels(List<ItemModel> itemModels) {
         this.itemModels = itemModels;
     }
+
+    public InventoryModel() {
+    }
 }

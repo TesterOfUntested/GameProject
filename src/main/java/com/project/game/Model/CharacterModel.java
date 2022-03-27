@@ -100,4 +100,9 @@ public class CharacterModel {
     public void setInventoryModel(InventoryModel inventoryModel) {
         this.inventoryModel = inventoryModel;
     }
+
+    public CharacterModel(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
 }
