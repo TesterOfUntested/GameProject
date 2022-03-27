@@ -1,0 +1,103 @@
+package com.project.game.Model;
+
+public class CharacterModel {
+    public enum Type {
+        Warrior, Archer, Mage;
+    }
+
+    int id;
+    String name;
+    String type;
+    int level;
+    int experience;
+    int healthPoints;
+    int manaPoints;
+    int atkPoints;
+    int defPoints;
+    int agtPoints;
+    InventoryModel inventoryModel;
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public int getHealthPoints() {
+        return healthPoints;
+    }
+
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
+    }
+
+    public int getManaPoints() {
+        return manaPoints;
+    }
+
+    public void setManaPoints(int manaPoints) {
+        this.manaPoints = manaPoints;
+    }
+
+    public int getAtkPoints() {
+        return atkPoints;
+    }
+
+    public void setAtkPoints(int atkPoints) {
+        this.atkPoints = atkPoints;
+    }
+
+    public int getDefPoints() {
+        return defPoints;
+    }
+
+    public void setDefPoints(int defPoints) {
+        this.defPoints = defPoints;
+    }
+
+    public int getAgtPoints() {
+        return agtPoints;
+    }
+
+    public void setAgtPoints(int agtPoints) {
+        this.agtPoints = agtPoints;
+    }
+
+    public InventoryModel getInventoryModel() {
+        return inventoryModel;
+    }
+
+    public void setInventoryModel(InventoryModel inventoryModel) {
+        this.inventoryModel = inventoryModel;
+    }
+}
