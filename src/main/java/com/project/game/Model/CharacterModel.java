@@ -1,13 +1,18 @@
 package com.project.game.Model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "CharacterModel")
 public class CharacterModel {
     public enum Type {
         Warrior, Archer, Mage;
     }
 
+    @Id
     int id;
     String name;
-    String type;
+    Type type;
     int level;
     int experience;
     int healthPoints;
@@ -29,11 +34,11 @@ public class CharacterModel {
         this.name = name;
     }
 
-    public String getType() {
+    public Type getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
         this.type = type;
     }
 
@@ -101,7 +106,7 @@ public class CharacterModel {
         this.inventoryModel = inventoryModel;
     }
 
-    public CharacterModel(String name, String type) {
+    public CharacterModel(String name, CharacterModel.Type type) {
         this.name = name;
         this.type = type;
     }
