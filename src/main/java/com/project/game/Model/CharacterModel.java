@@ -3,6 +3,8 @@ package com.project.game.Model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Document(collection = "CharacterModel")
 public class CharacterModel {
     public enum Type {
@@ -10,7 +12,7 @@ public class CharacterModel {
     }
 
     @Id
-    int id;
+    String id;
     String name;
     Type type;
     int level;
@@ -22,7 +24,7 @@ public class CharacterModel {
     int agtPoints;
     InventoryModel inventoryModel;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -107,6 +109,7 @@ public class CharacterModel {
     }
 
     public CharacterModel(String name, CharacterModel.Type type) {
+        id = UUID.randomUUID().toString();
         this.name = name;
         this.type = type;
     }

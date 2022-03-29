@@ -10,6 +10,7 @@ public class InventoryModel {
 
     @Id
     int id;
+    String characterId;
     List<ItemModel> itemModels;
 
 
@@ -23,6 +24,18 @@ public class InventoryModel {
 
     public void setItemModels(List<ItemModel> itemModels) {
         this.itemModels = itemModels;
+    }
+
+    public String getCharacterId() {
+        return characterId;
+    }
+
+    public void setCharacterId(String characterId) {
+        this.characterId = characterId;
+    }
+
+    public InventoryModel(String characterId) {
+        this.characterId = characterId;
     }
 
     public InventoryModel() {
