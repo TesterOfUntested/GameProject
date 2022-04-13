@@ -30,4 +30,9 @@ public class CharacterController {
         return allCharacters;
     }
 
+    @PostMapping("/deleteCharacter")
+    public void deleteCharacter(@RequestParam(name = "characterId") String characterId) {
+         characterRepository.deleteById(characterId);
+    }
+
 }
