@@ -3,10 +3,9 @@ package com.project.game.Controller;
 import com.project.game.Model.InventoryModel;
 import com.project.game.Repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class InventoryController {
@@ -20,9 +19,20 @@ public class InventoryController {
         inventoryRepository.save(inventoryModel);
     }
 
+    @GetMapping("/getAllInventories")
+    public List<InventoryModel> getAllInventories() {
+        List<InventoryModel> inventoryModels = inventoryRepository.findAll();
+        return inventoryModels;
+    }
+
     @GetMapping("/getCharacterInventory")
-    public InventoryModel getInventory(@RequestParam(name = "characterId") int characterId) {
+    public InventoryModel getInventory(@RequestParam(name = "characterId") String characterId) {
         return inventoryRepository.findByCharacterId(characterId);
+    }
+
+    @RequestMapping(method = RequestMethod.PATCH)
+    public void addItemToInventory(@RequestParam(name = "inventoryId") String inventoryId, @RequestParam(name = "itemId") String itemId) {
+
     }
 
 }
