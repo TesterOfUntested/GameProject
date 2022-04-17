@@ -35,15 +35,15 @@ public class InventoryModel {
         this.characterId = characterId;
     }
 
-    public InventoryModel(String characterId) {
-        id = UUID.randomUUID().toString();
-        this.characterId = characterId;
-        itemModels = getItemModels();
-    }
-
     public InventoryModel() {
         id = UUID.randomUUID().toString();
         this.characterId = null;
+        itemModels = getItemModels();
+    }
+
+    public InventoryModel(String characterId) {
+        id = UUID.randomUUID().toString();
+        this.characterId = characterId;
         itemModels = getItemModels();
     }
 }
