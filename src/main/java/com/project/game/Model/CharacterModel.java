@@ -112,5 +112,6 @@ public class CharacterModel {
         id = UUID.randomUUID().toString();
         this.name = name;
         this.type = type;
+        this.inventoryModel =  new InventoryModel();
     }
 }

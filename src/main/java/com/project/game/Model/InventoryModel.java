@@ -4,17 +4,18 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
+import java.util.UUID;
 
 @Document(collection = "InventoryModel")
 public class InventoryModel {
 
     @Id
-    int id;
+    String id;
     String characterId;
     List<ItemModel> itemModels;
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -35,9 +36,14 @@ public class InventoryModel {
     }
 
     public InventoryModel(String characterId) {
+        id = UUID.randomUUID().toString();
         this.characterId = characterId;
+        itemModels = getItemModels();
     }
 
     public InventoryModel() {
+        id = UUID.randomUUID().toString();
+        this.characterId = null;
+        itemModels = getItemModels();
     }
 }
