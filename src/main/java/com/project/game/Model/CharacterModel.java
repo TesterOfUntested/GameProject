@@ -109,8 +109,10 @@ public class CharacterModel {
     }
 
     public CharacterModel(String name, CharacterModel.Type type) {
-        id = UUID.randomUUID().toString();
+        String id = UUID.randomUUID().toString();
+        this.id = id;
         this.name = name;
         this.type = type;
+        this.inventoryModel =  new InventoryModel(id);
     }
 }

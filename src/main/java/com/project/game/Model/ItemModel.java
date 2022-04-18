@@ -3,11 +3,13 @@ package com.project.game.Model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Document(collection = "ItemModel")
 public class ItemModel {
 
     @Id
-    int id;
+    String id;
     String name;
     String description;
     int additionalHealthPoints;
@@ -16,7 +18,7 @@ public class ItemModel {
     int additionalDefPoints;
     int additionalAgtPoints;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -77,6 +79,7 @@ public class ItemModel {
     }
 
     public ItemModel(String name, String description) {
+        this.id = UUID.randomUUID().toString();
         this.name = name;
         this.description = description;
     }

@@ -5,6 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface InventoryRepository extends MongoRepository<InventoryModel, String> {
 
-    InventoryModel findByCharacterId(int characterId);
+    InventoryModel findByCharacterId(String characterId);
 
 }
