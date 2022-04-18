@@ -3,6 +3,7 @@ package com.project.game.Model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,7 +29,7 @@ public class InventoryModel {
     }
 
     public void addItemModel(ItemModel itemModel) {
-        this.itemModels.add(itemModel);
+        itemModels.add(itemModel);
     }
 
     public String getCharacterId() {
@@ -42,12 +43,12 @@ public class InventoryModel {
     public InventoryModel() {
         id = UUID.randomUUID().toString();
         this.characterId = null;
-        itemModels = getItemModels();
+        itemModels = new ArrayList<ItemModel>();
     }
 
     public InventoryModel(String characterId) {
         id = UUID.randomUUID().toString();
         this.characterId = characterId;
-        itemModels = getItemModels();
+        itemModels = new ArrayList<ItemModel>();
     }
 }
