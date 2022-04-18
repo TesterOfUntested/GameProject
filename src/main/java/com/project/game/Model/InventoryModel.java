@@ -27,6 +27,10 @@ public class InventoryModel {
         this.itemModels = itemModels;
     }
 
+    public void addItemModel(ItemModel itemModel) {
+        this.itemModels.add(itemModel);
+    }
+
     public String getCharacterId() {
         return characterId;
     }
