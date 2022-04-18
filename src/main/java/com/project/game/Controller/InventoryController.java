@@ -41,9 +41,6 @@ public class InventoryController {
             InventoryModel inventoryModel = inventoryRepository.findById(inventoryId).get();
             ItemModel itemModel = itemRepository.findById(itemId).get();
 
-            System.out.println(inventoryModel.getId());
-            System.out.println(itemModel.getId());
-
             inventoryModel.addItemModel(itemModel);
             inventoryRepository.save(inventoryModel);
         }
