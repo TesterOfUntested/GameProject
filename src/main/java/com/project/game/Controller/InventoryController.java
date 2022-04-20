@@ -1,7 +1,9 @@
 package com.project.game.Controller;
 
+import com.project.game.Model.CharacterModel;
 import com.project.game.Model.InventoryModel;
 import com.project.game.Model.ItemModel;
+import com.project.game.Repository.CharacterRepository;
 import com.project.game.Repository.InventoryRepository;
 import com.project.game.Repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class InventoryController {
 
     @Autowired
     private ItemRepository itemRepository;
+
+    @Autowired
+    private CharacterRepository characterRepository;
 
     @PostMapping("/addInventory")
     public void addInventory(@RequestParam(name="characterId") String characterId) {
@@ -43,12 +48,19 @@ public class InventoryController {
 
             inventoryModel.addItemModel(itemModel);
             inventoryRepository.save(inventoryModel);
+            updateCharacterInventory(inventoryModel.getCharacterId());
         }
     }
 
     @PostMapping("/deleteInventory")
     public void deleteInventory(@RequestParam(name="inventoryId") String inventoryId) {
         inventoryRepository.deleteById(inventoryId);
+    }
+
+    public void updateCharacterInventory(String characterId) {
+        CharacterModel characterModel = characterRepository.findById(characterId).get();
+        characterModel.setInventoryModel(inventoryRepository.findByCharacterId(characterId));
+        characterRepository.save(characterModel);
     }
 
 }
