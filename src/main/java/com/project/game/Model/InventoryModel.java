@@ -32,6 +32,10 @@ public class InventoryModel {
         itemModels.add(itemModel);
     }
 
+    public void deleteItemModel(ItemModel itemModel) {
+        itemModels.remove(itemModel);
+    }
+
     public String getCharacterId() {
         return characterId;
     }

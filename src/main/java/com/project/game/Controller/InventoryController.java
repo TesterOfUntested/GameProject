@@ -51,4 +51,15 @@ public class InventoryController {
         inventoryRepository.deleteById(inventoryId);
     }
 
+
+    @RequestMapping(method = RequestMethod.PATCH, path = "/deleteItemFromInventory")
+    public void deleteItemFromInventory(@RequestParam(name = "inventoryId") String inventoryId, @RequestParam(name = "itemId") String itemId) {
+        if(itemRepository.findById(itemId).isPresent() && inventoryRepository.findById(inventoryId).isPresent()) {
+            InventoryModel inventoryModel = inventoryRepository.findById(inventoryId).get();
+            ItemModel itemModel = itemRepository.findById(itemId).get();
+
+            inventoryModel.deleteItemModel(itemModel);
+            inventoryRepository.save(inventoryModel);
+        }
+    }
 }
